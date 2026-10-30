@@ -4,7 +4,7 @@
 bl_info = {
     "name": "Rock",
     "author": "The French Monkey",
-    "version": (1, 0, 1),
+    "version": (1, 0, 2),
     "blender": (4, 2, 0),
     "location": "View3D > Sidebar > Rock",
     "description": "Generate parametric rocks",
@@ -19,6 +19,11 @@ import math
 import hashlib
 from math import sqrt
 from mathutils import Vector, noise
+
+try:
+    from . import relay_updater
+except ImportError:  # the Addon Collection has its own updates
+    relay_updater = None
 
 # ------------------------------------------------------------------------
 # Helpers
@@ -663,6 +668,8 @@ class VIEW3D_PT_rock_generator(bpy.types.Panel):
     bl_category = "Rock" 
 
     def draw(self, context):
+        if relay_updater:
+            relay_updater.draw(self.layout)
         layout = self.layout
         p = context.scene.rockgen_props
         o = context.object
@@ -755,11 +762,15 @@ classes = (
 )
 
 def register():
+    if relay_updater:
+        relay_updater.register("blender-rock")
     for c in classes:
         bpy.utils.register_class(c)
     bpy.types.Scene.rockgen_props = bpy.props.PointerProperty(type=RockGenProperties)
 
 def unregister():
+    if relay_updater:
+        relay_updater.unregister()
     for c in reversed(classes):
         bpy.utils.unregister_class(c)
     del bpy.types.Scene.rockgen_props

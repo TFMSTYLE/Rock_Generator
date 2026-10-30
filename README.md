@@ -3,7 +3,7 @@
 ![rock-thumb](https://github.com/user-attachments/assets/0d7f3891-4fac-4674-a291-898f672489b7)
 
 **Author:** The French Monkey (TFMSTYLE)  
-**Version:** 1.0.1  
+**Version:** 1.0.2  
 
 ---
 
