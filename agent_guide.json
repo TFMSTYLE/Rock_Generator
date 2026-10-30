@@ -1,0 +1,17 @@
+{
+  "actions": {
+    "rock.generate": "Makes a new rock, or updates the rock that is selected",
+    "rock.randomize_seed": "Picks a new random seed",
+    "rock.reset_settings": "Puts every setting back to its default"
+  },
+  "notes": [
+    "What Rock does best is big fractured faces. For fine crags over the whole surface, expect to finish with Blender's own modifiers.",
+    "base_shape CUBE chips well. SPHERE barely chips at usual settings and can come back as a smooth ball.",
+    "adaptive_subdiv off leaves a few hundred vertices, too few for the surface detail settings to show. On adds vertices unevenly: they gather along edges, the big cut faces stay flat, and the count swings from under 1,000 to over 100,000. Strong detail values grow spikes.",
+    "Its mesh has open edges and very large faces, so Blender's Voxel Remesh can shred it. The SHARP remesh mode has held up.",
+    "size is only a starting point: the cuts decide the final size, and size 6 has given 3.6 to 7.6 m. Read size in the reply after every run. On SPHERE, size is the radius, not the width.",
+    "The origin is not reliably the centre, so use lowest_z in the reply to rest the rock on the ground.",
+    "chip_radius works the other way round from its description: a lower value cuts less.",
+    "subdivisions changes little once the rock has been cut."
+  ]
+}

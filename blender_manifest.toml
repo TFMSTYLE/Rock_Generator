@@ -13,7 +13,8 @@ blender_version_min = "4.2.0"
 website = "https://tfmstyle.com"
 
 [permissions]
-network = "Check for and download updates from Relay"
+network = "Check for updates from Relay, and let agents on this PC connect when you open the door"
+files = "Remember whether the agent door is open"
 
 [build]
-paths = ["__init__.py", "relay_updater.py", "LICENSE"]
+paths = ["__init__.py", "relay_updater.py", "agent_door.py", "agent_guide.json", "LICENSE"]

@@ -25,6 +25,11 @@ try:
 except ImportError:  # the Addon Collection has its own updates
     relay_updater = None
 
+try:
+    from . import agent_door
+except ImportError:  # the Addon Collection will carry its own door
+    agent_door = None
+
 # ------------------------------------------------------------------------
 # Helpers
 # ------------------------------------------------------------------------
@@ -668,6 +673,8 @@ class VIEW3D_PT_rock_generator(bpy.types.Panel):
     bl_category = "Rock" 
 
     def draw(self, context):
+        if agent_door:
+            agent_door.draw(self.layout)
         if relay_updater:
             relay_updater.draw(self.layout)
         layout = self.layout
@@ -767,8 +774,12 @@ def register():
     for c in classes:
         bpy.utils.register_class(c)
     bpy.types.Scene.rockgen_props = bpy.props.PointerProperty(type=RockGenProperties)
+    if agent_door:
+        agent_door.register("rock")
 
 def unregister():
+    if agent_door:
+        agent_door.unregister()
     if relay_updater:
         relay_updater.unregister()
     for c in reversed(classes):
