@@ -3,7 +3,7 @@
 ![rock-thumb](https://github.com/user-attachments/assets/0d7f3891-4fac-4674-a291-898f672489b7)
 
 **Author:** The French Monkey (TFMSTYLE)  
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 
 ---
 
@@ -203,3 +203,21 @@ Restores all parameters to their default values, keeping section visibility and 
 - Combine **Surface Detail** and **Cracks** for high-fidelity close-ups.  
 - Use **Adaptive Subdivision** for efficient generation at higher chip counts.  
 - Generated meshes are manifold, optimized, and ready for shading, sculpting, or scattering workflows.
+
+---
+
+## Install
+
+Needs Blender 4.2 or later. Get the zip from [tfmstyle.com](https://tfmstyle.com), then in Blender open Edit > Preferences > Get Extensions, open the menu at the top right and pick Install from Disk.
+
+To build the zip yourself, run this in the repo folder:
+
+```bash
+blender --command extension build
+```
+
+---
+
+## License
+
+GPL 3.0 or later. See [LICENSE](LICENSE).
